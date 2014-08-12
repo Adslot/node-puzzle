@@ -2,7 +2,7 @@ assert = require 'assert'
 geo = require '../lib'
 
 
-octet = -> Math.random() * 254
+octet = -> ~~(Math.random() * 254)
 genip = -> "#{octet()}.#{octet()}.#{octet()}.#{octet()}"
 
 describe 'geo', ->
