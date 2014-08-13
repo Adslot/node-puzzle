@@ -1,7 +1,7 @@
 # 01-geo-lookup
 
 The challenge is to craft an optimized algorithm so that IP address lookup
-would be super fast. You are not allowed to change content of neigher test files
+would be super fast. You are not allowed to change content of neither test files
 nor data file `geo.txt`. The aim is to get unit tests passing.
 
 
