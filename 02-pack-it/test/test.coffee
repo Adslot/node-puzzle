@@ -9,11 +9,13 @@ describe 'packer', ->
 
   it 'should pack data efficiently', (done) ->
     packer.pack data, (err, buffer) ->
+      if err then return done err
       res = buffer
       assert buffer.length <= 128
-      done err
+      done()
 
   it 'should unpack data w/o errors', (done) ->
     packer.unpack res, (err, sample) ->
+      if err then return done err
       assert.deepEqual data, sample
-      done err
+      done()
