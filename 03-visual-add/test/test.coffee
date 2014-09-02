@@ -18,3 +18,7 @@ describe 'visual add', ->
   it 'should +1 correctly for special case', ->
     added = adder.add [0, 0, 4]
     assert.deepEqual added, [5]
+
+  it 'should support any number', ->
+    added = adder.add [9, 0, 0, 7, 1, 9, 9, 2, 5, 4, 7, 4, 0, 9, 9, 2]
+    assert.deepEqual added, [9, 0, 0, 7, 1, 9, 9, 2, 5, 4, 7, 4, 0, 9, 9, 3]
