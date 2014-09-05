@@ -1,0 +1,24 @@
+{
+  "name": "04-noisy-channel",
+  "version": "0.1.0",
+  "description": "Fun puzzle for friday!",
+  "main": "index.coffee",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --compilers coffee:coffee-script/register"
+  },
+  "keywords": [
+    "javascript",
+    "puzzle"
+  ],
+  "author": "Tristan Straub <tristan@straub.id.au> (http://allthethings.io/)",
+  "license": "none",
+  "dependencies": {
+    "coffee-script": "^1.7.0",
+    "expect": "^0.1.1",
+    "mocha": "^1.21.4",
+    "sinon": "^1.10.3"
+  }
+}

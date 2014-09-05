@@ -1,0 +1,9 @@
+Modify methods encode/decode in "src/encoder.coffee".
+
+Methods:
+  encode: takes an array of booleans, returns an array of booleans
+  decode: takes an array of booleans, returns an array of booleans
+
+Modify these two methods so that if bits in the output of "encode" are flipped randomly,
+with a particular probability, "decode" can still recover the original message passed to encode.
+
