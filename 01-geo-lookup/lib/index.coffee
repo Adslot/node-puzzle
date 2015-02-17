@@ -1,37 +1,30 @@
-fs = require 'fs'
+fs = require('fs')
+intervals = require('./intervals')
 
+tree = new (intervals.SegmentTree)
+countryArray = []
 
-GEO_FIELD_MIN = 0
-GEO_FIELD_MAX = 1
-GEO_FIELD_COUNTRY = 2
-
-
-exports.ip2long = (ip) ->
-  ip = ip.split '.', 4
-  return +ip[0] * 16777216 + +ip[1] * 65536 + +ip[2] * 256 + +ip[3]
-
-
-gindex = []
 exports.load = ->
-  data = fs.readFileSync "#{__dirname}/../data/geo.txt", 'utf8'
-  data = data.toString().split '\n'
+  data = fs.readFileSync('./data/geo.txt', 'utf8')
+  data = data.toString().split('\n')
 
-  for line in data when line
-    line = line.split '\t'
-    # GEO_FIELD_MIN, GEO_FIELD_MAX, GEO_FIELD_COUNTRY
-    gindex.push [+line[0], +line[1], line[3]]
+  data.forEach (line) ->
+    if line
+      line = line.split('\t')
+      tree.pushInterval parseInt(line[0]), parseInt(line[1])
+      countryArray.push line[3]
+    return
+  tree.buildTree()
+  return
 
+exports.lookup = (ipAddr) ->
+  ip = @ip2long(ipAddr)
+  index = tree.queryInterval(ip, ip)
+  if index then 'country': countryArray[index - 1] else null
 
-normalize = (row) -> country: row[GEO_FIELD_COUNTRY]
-
-
-exports.lookup = (ip) ->
-  return -1 unless ip
-
-  find = this.ip2long ip
-
-  for line, i in gindex
-   if find >= line[GEO_FIELD_MIN] and find <= line[GEO_FIELD_MAX]
-    return normalize line
-
-  return null
+exports.ip2long = (ipAddr) ->
+  ipRange = ipAddr.split('.')
+  if ipRange.length == 4
+    ipRange[0] * 16777216 + ipRange[1] * 65536 + ipRange[2] * 256 + ipRange[3] * 1
+  else
+    -1
