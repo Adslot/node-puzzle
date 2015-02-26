@@ -9,15 +9,4 @@ node_modules
 .idea/vcs.xml
 .idea/watcherTasks.xml
 .idea/workspace.xml
-01-geo-lookup/.idea/.name
-01-geo-lookup/.idea/01-geo-lookup.iml
-01-geo-lookup/.idea/encodings.xml
-01-geo-lookup/.idea/misc.xml
-01-geo-lookup/.idea/modules.xml
-01-geo-lookup/.idea/scopes/scope_settings.xml
-01-geo-lookup/.idea/vcs.xml
-01-geo-lookup/.idea/workspace.xml
-01-geo-lookup/lib/index.js
-01-geo-lookup/lib/index.js.map
-01-geo-lookup/test/index.js
-01-geo-lookup/test/index.js.map
+
