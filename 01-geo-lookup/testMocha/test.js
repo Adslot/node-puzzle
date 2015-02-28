@@ -34,7 +34,7 @@ describe('geo', function() {
         it('should return null for unknown IP', function() {
             var result;
             result = geo.lookup('1.1.1.1');
-            expect(result).to.equal('null');
+            expect(result).to.equal(null);
         });
         it.skip('should be freaking fast', function() {
             var diff, i, j, msec, start;
