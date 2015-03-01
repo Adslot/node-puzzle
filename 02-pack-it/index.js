@@ -48,15 +48,13 @@
         for (var index = 0 ; index<buffer.length; ++index) {
             var numBitwise = buffer[index].charCodeAt().toString(2);
 
-
-            var num = parseInt(numBitwise, 2);
             if (numBitwise.length < maxCharBitSize) { //complete to 8 bit string representation with leading zeros on the left
                 for (var len = numBitwise.length ; len < maxCharBitSize ; ++len) {
                     numBitwise = '0' + numBitwise;
                 }
             }
 
-            for (var charCounter = maxCharBitSize-1 ;  charCounter >= 0 ; --charCounter) {
+            for (var charCounter = maxCharBitSize-1 ;  charCounter >= 0 ; --charCounter) { //write bits to resulting array
                 res.push(parseInt(numBitwise[charCounter], 10) === 1);
             }
         }
