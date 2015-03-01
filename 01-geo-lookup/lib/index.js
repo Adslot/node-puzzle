@@ -62,6 +62,7 @@
             minIndex = 0;
             maxIndex = gindex.length - 1;
             currentIndex =  0;
+
             while (minIndex <= maxIndex) {
                 currentIndex = (minIndex + maxIndex) / 2 | 0;
                 currentLine = gindex[currentIndex];
