@@ -1,0 +1,15 @@
+{
+  "name": "05-quant",
+  "version": "0.0.1",
+  "description": "Fun puzzle for friday!",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "mocha --reporter spec --bail --compilers coffee:coffee-script/register test.coffee"
+  },
+  "author": "Dmitry Shirokov <deadrunk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.9.0",
+    "mocha": "^1.21.4"
+  }
+}
