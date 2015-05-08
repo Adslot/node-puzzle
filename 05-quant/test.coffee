@@ -16,7 +16,7 @@ describe 'quant', ->
         algo
       }
 
-      assert account.USD >= 1000, "Your algo loses money: start: $1000, end: $#{account.USD}"
+      assert account.USD >= 1000.001, "Your algo loses money: start: $1000, end: $#{account.USD}"
 
   it 'should make 5% profit (bonus)', ->
     for [0...10]
