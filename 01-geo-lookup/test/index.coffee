@@ -20,11 +20,12 @@ describe 'geo', ->
     before -> geo.load()
 
     it 'should find country', ->
-      result = geo.lookup '87.229.134.24'
-      assert.equal result.country, 'RU'
-
-      result = geo.lookup '2.20.4.0'
-      assert.equal result.country, 'IT'
+      assert.equal geo.lookup('87.229.134.24').country, 'RU'
+      assert.equal geo.lookup('2.20.4.1').country, 'IT'
+      assert.equal geo.lookup('50.0.0.1').country, 'US'
+      assert.equal geo.lookup('5.135.39.188').country, 'FR'
+      assert.equal geo.lookup('194.45.128.48').country, 'DE'
+      assert.equal geo.lookup('91.238.130.1').country, 'GB'
 
     it 'should return null for unknown IP', ->
       result = geo.lookup '1.1.1.1'
