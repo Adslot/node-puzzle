@@ -19,19 +19,22 @@ To test your solution run `npm test`
 
 ## Data structure
 
- - `id` required, positive integer
- - `fees` required
+ - `id` required, integer, positive
+ - `fees` required, object
  - `fees.base` required, positive float, "1" max
  - `fees.custom` required, positive float, "1" max
  - `terms` required, boolean, should always be "true"
  - `email` required, email, 255 max length
- - `brand` required
+ - `brand` required, object
  - `brand.logo` required, url, max length 255
  - `brand.website` required, url, max length 255
  - `brand.name` optional, string, max length 32
- - `brand.colors` optional
+ - `brand.colors` optional, object
  - `brand.colors.header` required, string, color hex
  - `brand.colors.footer` required, string, color hex
+ - `browsers`, required, array, non-empty
+ - `browsers[].name` required, string, max length 32
+ - `browsers[].version` required, integer, positive
  - **No extra params accepted**
 
 

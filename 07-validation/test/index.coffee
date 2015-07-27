@@ -19,6 +19,10 @@ describe '07-validation', ->
         colors:
           header: '#ff6'
           footer: '#ccccff'
+      browsers: [
+        {name: 'chrome', version: 25}
+        {name: 'safari', version: 11}
+      ]
 
   it 'should return `false` for invalid data', ->
     assert !validate
@@ -35,6 +39,10 @@ describe '07-validation', ->
         colors:
           header: '#ff6'
           footer: '#ccccff'
+      browsers: [
+        {name: 'chrome', version: 25}
+        {name: 'safari', version: 11}
+      ]
 
   it 'should return `false` for valid data', ->
     assert !validate
@@ -51,6 +59,10 @@ describe '07-validation', ->
         colors:
           header: '#ff6'
           footer: '#ccccff'
+      browsers: [
+        {name: 'chrome', version: 25}
+        {name: 'safari', version: 11}
+      ]
 
   # !!!!!
   # Add more tests for different data users can ship to our app!
