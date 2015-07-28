@@ -24,7 +24,7 @@ describe '07-validation', ->
         {name: 'safari', version: 11}
       ]
 
-  it 'should return `false` for invalid data', ->
+  it 'should return `false` for invalid data: fees', ->
     assert !validate
       id: 1
       fees:
@@ -44,7 +44,7 @@ describe '07-validation', ->
         {name: 'safari', version: 11}
       ]
 
-  it 'should return `false` for valid data', ->
+  it 'should return `false` for invalid data: terms', ->
     assert !validate
       id: 1
       fees:
@@ -52,6 +52,46 @@ describe '07-validation', ->
         custom: 0.15
       terms: false
       email: 'foo@bar.com'
+      brand:
+        logo: 'http://foobar.com/logo.gif'
+        website: 'http://foobar.com/'
+        name: 'Foobar'
+        colors:
+          header: '#ff6'
+          footer: '#ccccff'
+      browsers: [
+        {name: 'chrome', version: 25}
+        {name: 'safari', version: 11}
+      ]
+
+  it 'should return `false` for invalid data: fees', ->
+    assert !validate
+      id: 1
+      fees:
+        base: 2 # <--- problem
+        custom: 3 # <--- problem
+      terms: true
+      email: 'foo@bar.com'
+      brand:
+        logo: 'http://foobar.com/logo.gif'
+        website: 'http://foobar.com/'
+        name: 'Foobar'
+        colors:
+          header: '#ff6'
+          footer: '#ccccff'
+      browsers: [
+        {name: 'chrome', version: 25}
+        {name: 'safari', version: 11}
+      ]
+
+  it 'should return `false` for invalid data: email', ->
+    assert !validate
+      id: 1
+      fees:
+        base: 2
+        custom: 3
+      terms: true
+      email: 'foo@bar@baz.com' # <--- problem
       brand:
         logo: 'http://foobar.com/logo.gif'
         website: 'http://foobar.com/'
