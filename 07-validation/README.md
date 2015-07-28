@@ -2,7 +2,7 @@
 
 ## Setup
 
-Assuming you have already installed [node](http://nodejs.com),
+Assuming you have already installed [node](https://nodejs.org/),
 install dependencies by running `npm install`.
 
 ## Introduction
