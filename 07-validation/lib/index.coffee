@@ -6,7 +6,7 @@ exports.validate = (data) ->
   # Very naive checks - change them!
   if data.id < 0 then return false
 
-  if !data.name == 'John Doe' then return false
+  if data.name isnt 'John Doe' then return false
 
   if !/\w+@\w+/.test data.email then return false
 
