@@ -2,41 +2,44 @@
 
 ## Setup
 
-To install dependencies run `npm i`
+Assuming you have already installed [node](http://nodejs.com),
+install dependencies by running `npm install`.
 
-## Intro
+## Introduction
 
-In this puzzle you're required to write a validation function in `lib/index.coffee`. To make sure it works just do `npm test` from this directory. 
+In this puzzle you need to write a validation function in `lib/index.coffee`.
+The function will need validate input that looks like:
 
-What you need: 
- - There're two tests broken, you'll need to fix them, see `test/index.coffee`.
- - Cover all possible shapes of invalid data you can receive and write tests for there cases. See *Data structure* below.
+```javascript
+{
+  id: 1,
+  name: "John",
+  email: "test@adslot.com",
+  taxRate: 0.1,
+  favouriteColour: "#323232",
+  interests: ["cycling", "programming"]
+  ]
+}
+```
 
-## Test
+To be valid the input must satisfy:
 
-To test your solution run `npm test`
+- `id` required, integer, positive
+- `name` required, string, 63 character max length
+- `email` required, string, 255 character max length
+- `taxRate` required, float, minimum 0 and maximum 1
+- `favouriteColour` optional, string, colour hex
+- `interests` optional, array, all interests must be strings (31 char max length) and no more than 4 interests should be provided
 
+**Note: there should be no other attributes in the input.**
 
-## Data structure
+To make sure it works just do `npm test` from this directory.
 
- - `id` required, integer, positive
- - `fees` required, object
- - `fees.base` required, positive float, "1" max
- - `fees.custom` required, positive float, "1" max
- - `terms` required, boolean, should always be "true"
- - `email` required, email, 255 max length
- - `brand` required, object
- - `brand.logo` required, url, max length 255
- - `brand.website` required, url, max length 255
- - `brand.name` optional, string, max length 32
- - `brand.colors` optional, object
- - `brand.colors.header` required, string, color hex
- - `brand.colors.footer` required, string, color hex
- - `browsers`, required, array, non-empty
- - `browsers[].name` required, string, max length 32
- - `browsers[].version` required, integer, positive
- - **No extra params accepted**
+## Tasks
 
+To complete this puzzle, you must:
 
+- Fix the two broken tests. (Hint: Do not change the existing tests in `test/index.coffee`!)
+- Write more tests to demonstrate your skills finding edge cases and corner cases.
 
-
+To test your validation functions run `npm test`.
