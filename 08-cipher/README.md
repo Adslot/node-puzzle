@@ -7,11 +7,17 @@ install dependencies by running `npm install`.
 
 ## Tasks
 
-1. Alphabet cipher
+1. Substitution cipher
 
-  You're required to understand how basic alphabet cipher works. Create your encryption function based on the decryption function which is already crafted. Edit `lib/alphabet.coffee` file. To test your solution do `npm test` in your terminal and see output.
+  Implement a (substution cipher)[https://en.wikipedia.org/wiki/Substitution_cipher] encryption function in `lib/substitution.coffee`.
+  You should use the provided placeholder function is provided.
+  A decryption function and tests are provided to check your implementation.
+  To test your solution run `npm test` in your terminal.
 
 1. Offset (Caesar) cipher
 
- This time it's even simpler - offset cipher. Based on the algorithm of encryption function you're required to write a decryption function. Edit `lib/offset.coffee` file. To test your solution do `npm test` in your terminal and see output.
+  Implement an (offset (Caesar) cipher)[https://en.wikipedia.org/wiki/Caesar_cipher] decryption function in `lib/offset.coffee`.
+  Again, you should use the provided placeholder function is provided.
+  An encryption function and tests are provided to check your implementation.
+  To test your solution run `npm test` in your terminal.
 
