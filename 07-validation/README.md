@@ -18,7 +18,6 @@ The function will need validate input that looks like:
   taxRate: 0.1,
   favouriteColour: "#323232",
   interests: ["cycling", "programming"]
-  ]
 }
 ```
 
