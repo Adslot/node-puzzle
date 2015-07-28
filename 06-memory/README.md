@@ -1,7 +1,7 @@
 # 06-memory
 
 The challenge is to craft an optimized algorithm so that country code entry counter
-would be memory efficient. You are not allowed to change content of neither test files
+would be memory efficient, edit `lib/index.coffee` file. You are not allowed to change content of neither test files
 nor data file `geo.txt`. The aim is to get unit tests passing.
 
 
