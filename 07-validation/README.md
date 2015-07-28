@@ -15,7 +15,10 @@ The function will need validate input that looks like:
   id: 1,
   name: "John",
   email: "test@adslot.com",
+  taxRate: 0.1,
   favouriteColour: "#323232",
+  interests: ["cycling", "programming"]
+  ]
 }
 ```
 
@@ -24,16 +27,11 @@ To be valid the input must satisfy:
 - `id` required, integer, positive
 - `name` required, string, 63 character max length
 - `email` required, string, 255 character max length
+- `taxRate` required, float, minimum 0 and maximum 1
 - `favouriteColour` optional, string, colour hex
+- `interests` optional, array, all interests must be strings (31 char max length) and no more than 4 interests should be provided
 
 **Note: there should be no other attributes in the input.**
-
-The data types you need to validate are:
-
-- integer
-- string
-- email
-- hex colour
 
 To make sure it works just do `npm test` from this directory.
 
