@@ -2,8 +2,18 @@
 
 ## Setup
 
-Assuming you have already installed [node](https://nodejs.org/),
-install dependencies by running `npm install`.
+Assuming you have already installed [node](https://nodejs.org/), do in your terminal:
+
+```shell
+# Clone this repository
+$ git clone git@github.com:Adslot/node-puzzle.git
+# Go to current dir
+$ cd node_puzzle/08-cipher
+# Install npm dependencies
+$ npm install
+# Test your solution
+$ npm test
+```
 
 ## Tasks
 
