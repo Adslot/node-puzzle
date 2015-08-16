@@ -49,6 +49,6 @@ To make sure it works just do `npm test` from this directory.
 To complete this puzzle, you must:
 
 - Fix the two broken tests. (Hint: Do not change the existing tests in `test/index.coffee`!)
-- Write more tests to demonstrate your skills finding edge cases and corner cases.
+- Write more tests to demonstrate your skills finding edge cases and corner cases. Change validation function in `lib/index.coffee` so that it returns a proper result in your test.
 
 To test your validation functions run `npm test`.
