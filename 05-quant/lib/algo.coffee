@@ -15,14 +15,17 @@
  * @param {Object}  [account] Your account information. It has _realtime_ balance of USD and BTC
  * @returns {object}          An order to be executed, can be null
 ###
+
 exports.tick = (price, candle, account) ->
-  r = Math.random()
-  amount = 1
 
   # Sell 1 dollar for equivalent amount of btc
-  if r < 0.33 and account.USD > amount then return sell: amount
+  #if r < 0.33 and account.USD > amount then return sell: amount
+  if candle.open < candle.close and account.USD > 1
+    return sell: account.USD - 1
 
   # Buy 1 dollar for equivalent amount of btc
-  if r < 0.66 and account.BTC > amount / price then return buy: amount
+  #if r < 0.66 and account.BTC > amount / price then return buy: amount
+  if candle.open >= candle.close #and account.BTC > amount / price
+    return buy: account.BTC * price - 1
 
   return null # do nothing
