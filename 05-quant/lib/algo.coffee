@@ -15,17 +15,45 @@
  * @param {Object}  [account] Your account information. It has _realtime_ balance of USD and BTC
  * @returns {object}          An order to be executed, can be null
 ###
+statObj =
+  nullCount: 0
+  sellCount: 0
+  buyCount: 0
+  sellUpwards: 0
+  sellDownwards: 0
+  buyUpwards: 0
+  buyDownwards: 0
 
 exports.tick = (price, candle, account) ->
+  ret = null
 
-  # Sell 1 dollar for equivalent amount of btc
-  #if r < 0.33 and account.USD > amount then return sell: amount
-  if candle.open < candle.close and account.USD > 1
-    return sell: account.USD - 1
+  # Check if Green candle or a red candle
+  if candle.open < candle.close
+    # Check if a upwards trend
+    if candle.close > price
+      if account.USD > 1
+        statObj.sellCount += 1
+        ret = sell: account.USD - 1
+      else
+        statObj.toSellUpwards += 1
+    else
+      statObj.sellDownwards += 1
+      ret = buy: account.BTC * price - 1
 
-  # Buy 1 dollar for equivalent amount of btc
-  #if r < 0.66 and account.BTC > amount / price then return buy: amount
-  if candle.open >= candle.close #and account.BTC > amount / price
-    return buy: account.BTC * price - 1
+  else
+    # Check if a downwards trend
+    if candle.close <= price
+      statObj.buyDownwards += 1
+      statObj.buyCount += 1
+      ret = buy: account.BTC * price - 1
+    else
+      if account.USD > 1
+        statObj.sellCount += 1
+        ret = sell: account.USD - 1
+      else
+        statObj.buyUpwards += 1
 
-  return null # do nothing
+  if ret == null then statObj.nullCount += 1
+
+  console.log statObj
+  return ret
