@@ -1,6 +1,7 @@
 through2 = require 'through2'
 
-WordCounter = () ->
+
+module.exports = ->
   words = 0
   lines = 1
 
@@ -15,5 +16,3 @@ WordCounter = () ->
     return cb()
 
   return through2.obj transform, flush
-
-module.exports = WordCounter
