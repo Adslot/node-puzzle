@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --compilers coffee:coffee-script/register"
+  }
+}
