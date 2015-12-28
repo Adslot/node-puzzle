@@ -8,7 +8,7 @@ Assuming [node](https://nodejs.org/) is already installed, in your terminal:
 # Clone this repository
 git clone git@github.com:Adslot/node-puzzle.git
 
-# Go to current dir
+# Go to working dir
 cd node_puzzle/10-word-count
 
 # Install npm dependencies
