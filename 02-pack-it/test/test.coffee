@@ -10,6 +10,7 @@ describe 'packer', ->
   it 'should pack data efficiently', (done) ->
     packer.pack data, (err, buffer) ->
       if err then return done err
+      assert Buffer.isBuffer(buffer), 'pack method should return a Buffer'
       res = buffer
       assert buffer.length <= 128
       done()

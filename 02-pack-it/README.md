@@ -11,8 +11,7 @@ an array of *Boolean* flags:
 Challenge is to write both pack and unpack functions which would significantly
 reduce stored data size. Due to content and size of a config, tools like gzip/zip have
 quite big overhead, so we are looking for more efficient custom solution. Pack function
-should return either *String* or *Buffer* so that content can be stored directly
-in file system.
+should return *Buffer* so that content can be stored directly on file system.
 
 Place your solution in `./index.coffee` file and make tests working.
 
