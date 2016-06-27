@@ -1,8 +1,8 @@
 # 06-memory
 
-The challenge is to craft an optimized algorithm so that country code entry counter
-would be memory efficient, edit `lib/index.coffee` file. You are not allowed to change content of neither test files
-nor data file `geo.txt`. The aim is to get unit tests passing.
+The challenge is to craft an optimized algorithm so that country IP address counter
+would be memory efficient, edit `lib/index.coffee` file. You are not allowed to change content of either test files
+or data file `geo.txt`. The aim is to get unit tests passing.
 
 
 ## Setup

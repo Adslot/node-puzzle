@@ -3,15 +3,15 @@ assert = require 'assert'
 
 describe 'reader', ->
 
-  describe 'countryCounter()', ->
+  describe 'countryIpCounter()', ->
 
     it 'should be memory efficient', (done) ->
       heapUsageBefore = process.memoryUsage().heapUsed
       reader = require '../lib'
-      reader.countryCounter 'RU', (err, result) ->
+      reader.countryIpCounter 'RU', (err, result) ->
         if err then return done err
 
-        assert.equal result, 111054
+        assert.equal result, 139092612
 
         heapUsageAfter = process.memoryUsage().heapUsed
         heapUsageIncrease = heapUsageAfter / heapUsageBefore

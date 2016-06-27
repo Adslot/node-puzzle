@@ -1,7 +1,7 @@
 fs = require 'fs'
 
 
-exports.countryCounter = (countryCode, cb) ->
+exports.countryIpCounter = (countryCode, cb) ->
   return cb() unless countryCode
 
   fs.readFile "#{__dirname}/../data/geo.txt", 'utf8', (err, data) ->
@@ -15,6 +15,6 @@ exports.countryCounter = (countryCode, cb) ->
       # GEO_FIELD_MIN, GEO_FIELD_MAX, GEO_FIELD_COUNTRY
       # line[0],       line[1],       line[3]
 
-      if line[3] == countryCode then counter++
+      if line[3] == countryCode then counter += +line[1] - +line[0]
 
     cb null, counter
