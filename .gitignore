@@ -4,3 +4,5 @@ npm-debug.log
 *.backup
 .DS_Store
 .idea
+*.js
+*.sublime*
