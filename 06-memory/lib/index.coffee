@@ -1,22 +1,14 @@
-fs = require 'fs'
+lineByLine = require 'n-readlines'
 
-readline = require('readline')
-
-exports.countryIpCounter = (countryCode, cb) ->
+exports.countryIpCounterLineByLine = (countryCode, cb) ->
   return cb() unless countryCode
-
-  fs.readFile "#{__dirname}/../data/geo.txt", 'utf8', (err, data) ->
-    if err then return cb err
-
-    data = data.toString().split '\n'
-    counter = 0
-
-    for line in data when line
-      line = line.split '\t'
-      # GEO_FIELD_MIN, GEO_FIELD_MAX, GEO_FIELD_COUNTRY
-      # line[0],       line[1],       line[3]
-
-      if line[3] == countryCode then counter += +line[1] - +line[0]
-
-    cb null, counter
-    # console.log(counter)
+  counter = 0
+  liner = new lineByLine("#{__dirname}/../data/geo.txt", [readChunk=4096])
+  re = new RegExp(countryCode, "g")
+  while line = liner.next()
+    str =  line.toString('utf8')
+    if str.match(re) then (
+      str = str.split '\t'
+      counter += +str[1] - +str[0]
+      )
+  cb null, counter

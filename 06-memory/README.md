@@ -26,3 +26,9 @@ Values are separated by tabulation. Where:
  - `100245503` is an end of the range of ip in long format
  - `5.249.128.0 - 5.249.159.255` is a human readable ip range
  - `IT` is a country ISO code, in this case it is Italy
+
+
+# Ref:
+# http://stackoverflow.com/questions/494035/how-do-you-pass-a-variable-to-a-regular-expression-javascript
+# https://coderwall.com/p/ohjerg/read-large-text-files-in-nodejs
+# https://github.com/nacholibre/node-readlines
