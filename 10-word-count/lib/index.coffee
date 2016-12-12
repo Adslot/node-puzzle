@@ -9,6 +9,13 @@ module.exports = ->
     tokens = chunk.split(' ')
     words = tokens.length
     return cb()
+  
+  transform =(chunk,encoding,cb)->
+    tokens=chunk.split("")
+    words =tokens.length
+    return cb()
+  
+
 
   flush = (cb) ->
     this.push {words, lines}
