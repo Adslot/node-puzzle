@@ -3,6 +3,8 @@ fs = require 'fs'
 
 exports.countryIpCounter = (countryCode, cb) ->
   return cb() unless countryCode
+   heapUsageBefore = process.memoryUsage().heapUsed
+    
 
   fs.readFile "#{__dirname}/../data/geo.txt", 'utf8', (err, data) ->
     if err then return cb err
@@ -16,5 +18,8 @@ exports.countryIpCounter = (countryCode, cb) ->
       # line[0],       line[1],       line[3]
 
       if line[3] == countryCode then counter += +line[1] - +line[0]
-
+      
+  heapUsageAfter = process.memoryUsage().heapUsed
+  heapUsageIncrease = heapUsageAfter / heapUsageBefore
+  
     cb null, counter
