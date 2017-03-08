@@ -14,14 +14,14 @@ module.exports = ({history, algo, account}) ->
 
     if order?.sell > 0
       btcAmount = order.sell / candle.avgPrice
-      assert order.sell <= account.USD, "Cannot go below zero. Balance: #{account.USD} USD, amount: #{order.sell}"
+      assert btcAmount <= account.BTC, "Cannot go below zero. Balance: #{account.BTC} BTC, amount: #{btcAmount}"
       account.USD -= order.sell
       account.BTC += btcAmount
       log "Selling #{order.sell} USD for #{btcAmount} BTC", {account}
 
     if order?.buy > 0
       btcAmount = order.buy / candle.avgPrice
-      assert btcAmount <= account.BTC, "Cannot go below zero. Balance: #{account.BTC} BTC, amount: #{btcAmount}"
+      assert order.buy <= account.USD, "Cannot go below zero. Balance: #{account.USD} USD, amount: #{order.buy}"
       account.USD += order.buy
       account.BTC -= btcAmount
       log "Buying #{order.buy} USD for #{btcAmount} BTC", {account}
