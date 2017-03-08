@@ -15,14 +15,28 @@
  * @param {Object}  [account] Your account information. It has _realtime_ balance of USD and BTC
  * @returns {object}          An order to be executed, can be null
 ###
+statObj =
+  nullCount: 0
+  sellCount: 0
+  buyCount: 0
+
 exports.tick = (price, candle, account) ->
-  r = Math.random()
-  amount = 1
+  ret = null
 
-  # Sell 1 dollar for equivalent amount of btc
-  if r < 0.33 and account.USD > amount then return sell: amount
+  # Check for the trend by analysing candlestick
+  if candle.close > price
+    # Handle upwards trend
+    if account.USD > 1
+      statObj.sellCount += 1
+      ret = sell: account.USD - 1
+    else
+      # do nothing
+  else
+    #handle downwards trend
+    statObj.buyCount += 1
+    ret = buy: account.BTC * price - 1
 
-  # Buy 1 dollar for equivalent amount of btc
-  if r < 0.66 and account.BTC > amount / price then return buy: amount
+  if ret == null then statObj.nullCount += 1
 
-  return null # do nothing
+  #console.log statObj
+  return ret
