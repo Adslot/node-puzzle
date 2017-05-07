@@ -7,7 +7,14 @@ exports.encrypt = (string) ->
   #
   # !!! Place your solition here !!!
   #
-  return 'fix me'
+  encryptedCipher = ''
+  for char in string
+    index1 = alphabet1.indexOf char
+    if alphabet0.length < index1 < 0  
+      encryptedCipher += char
+    else
+      encryptedCipher += alphabet0[index1]
+  return encryptedCipher
 
 
 exports.decrypt = (string) ->
