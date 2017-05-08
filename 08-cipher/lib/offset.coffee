@@ -16,4 +16,12 @@ exports.decrypt = (string, secret = 1) ->
   #
   # !!! Place your solition here !!!
   #
-  return 'fix me'
+  decrptedString = ''
+  for char in string
+    unicode = char.charCodeAt(0)
+    if unicode <= 41
+      decrptedString += char
+    else
+      decrptedString += String.fromCharCode(unicode + secret)
+    
+  return decrptedString
