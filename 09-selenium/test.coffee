@@ -13,7 +13,7 @@ test.describe 'Adslot website', ->
   test.before -> browser = new webdriver.Builder().usingServer().withCapabilities({browserName: 'chrome'}).build()
   #browser.manage().timeouts().implicityWait(5000)
   # Close browser after all tests
-  #test.after -> browser.quit()
+  test.after -> browser.quit()
 
 
   test.it 'should have 8 offices on careers page', ->
@@ -46,7 +46,7 @@ test.describe 'Adslot website', ->
       browser.getTitle().then (title)->
         title.should.have.string "Google"
     resultLinks = browser.findElements(webdriver.By.css('div.rc>h3'))
-    resultLinks[0].click()
+    #resultLinks[0].click()
     browser.wait () ->
       browser.getTitle().then (title)->
         title.should.have.string "Adslot"
