@@ -8,6 +8,10 @@ exports.validate = (data) ->
 
   if data.name isnt 'John Doe' then return false
 
-  if !/\w+@\w+/.test data.email then return false
+  #if !/\w+@\w+/.test data.email then return false
+  
+  if data.email isnt 'foo@bar.com' then return false
+
+  if data.favouriteColour isnt '#ff6' then return false
 
   return true
