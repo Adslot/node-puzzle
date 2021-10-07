@@ -1,12 +1,9 @@
 {
-  "dependencies": {
-    "coffee-script": "^1.9.3"
-  },
   "devDependencies": {
     "mocha": "^2.3.3",
     "selenium-webdriver": "^2.47.0"
   },
   "scripts": {
-    "test": "mocha --timeout 60000 --reporter spec --compilers coffee:coffee-script/register test.coffee"
+    "test": "mocha --timeout 60000 --reporter spec test.js"
   }
 }

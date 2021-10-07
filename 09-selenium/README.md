@@ -33,7 +33,7 @@ $ selenium-standalone start
 
 ## Tasks
 
-Extend `test.coffee` with your scenarios. You don't have to create/edit any other files.
+Extend `test.js` with your scenarios. You don't have to create/edit any other files.
 
 Run `npm test` to make sure your solution works as expected.
 
