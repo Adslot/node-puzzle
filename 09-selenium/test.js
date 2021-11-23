@@ -35,4 +35,5 @@ test.describe('Adslot website', () => {
     browser.findElement(webdriver.By.id('message')).isDisplayed();
     browser.findElement(webdriver.By.css('button[type=submit]')).isDisplayed();
   });
+  
 });
