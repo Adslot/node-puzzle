@@ -12,8 +12,15 @@ exports.encrypt = (string, secret = 1) ->
   return result
 
 
-exports.decrypt = (string, secret = 1) ->
-  #
-  # !!! Place your solition here !!!
-  #
-  return 'fix me'
+  exports.decrypt = (string) ->
+  result = ''
+  for char in string
+    index = alphabet0.indexOf char
+    if index is -1
+      result += char
+    else
+      result += alphabet1[index]
+
+  return result
+
+ 
